@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Search, LogIn, ChevronDown } from "lucide-react";
-import { GENRE_MAP } from "@/lib/api/jikan";
+import { GENRE_MAP, TYPE_MAP } from "@/lib/api/jikan";
 
 const GENRE_ENTRIES = Object.entries(GENRE_MAP);
+const TYPE_ENTRIES = Object.entries(TYPE_MAP);
 
 export default function Navbar() {
   return (
@@ -15,6 +16,8 @@ export default function Navbar() {
           Ani<span className="text-neutral-100">Watch</span>
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-400">
+
+          {/* Genres dropdown */}
           <div className="relative group">
             <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
               Genres <ChevronDown className="w-3.5 h-3.5 opacity-60" />
@@ -34,19 +37,20 @@ export default function Navbar() {
             </div>
           </div>
 
+          {/* Types dropdown */}
           <div className="relative group">
             <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
               Types <ChevronDown className="w-3.5 h-3.5 opacity-60" />
             </button>
-            <div className="absolute left-0 top-full mt-2 hidden min-w-45 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
+            <div className="absolute left-0 top-full mt-2 hidden min-w-40 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
               <div className="grid gap-1 text-xs font-semibold text-neutral-300">
-                {["tv", "movie", "ova", "special"].map((type) => (
+                {TYPE_ENTRIES.map(([slug, t]) => (
                   <Link
-                    key={type}
-                    href={`/search?q=&type=${type}`}
+                    key={slug}
+                    href={`/type/${slug}`}
                     className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
                   >
-                    {type.toUpperCase()}
+                    {t.label}
                   </Link>
                 ))}
               </div>

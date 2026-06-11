@@ -28,7 +28,6 @@ async function jikanFetch<T>(path: string): Promise<T> {
 async function fetchEpisodeMeta(
   id: number
 ): Promise<{ total: number; lastPage: number; latestEpisode: number }> {
-  // First fetch to get pagination info
   const firstPageResult = await queue.add(async () => {
     const response = await fetch(
       `${BASE_URL}/anime/${id}/episodes?page=1`,
@@ -50,43 +49,48 @@ async function fetchEpisodeMeta(
   const lastPage = firstPageResult.pagination.last_visible_page;
   const total = firstPageResult.pagination.items?.total || lastPage * 100;
 
-  // Fetch the last page to get the actual latest episodes
   const lastPageResult = await queue.add(async () => {
     const response = await fetch(
       `${BASE_URL}/anime/${id}/episodes?page=${lastPage}`,
       { next: { revalidate: 300 } }
     );
     if (!response.ok) return null;
-    return response.json() as Promise<{
-      data: Episode[];
-    }>;
+    return response.json() as Promise<{ data: Episode[] }>;
   });
 
-  // Get the actual latest episode number from the last page of episodes
   const latestEpisode =
     lastPageResult?.data && lastPageResult.data.length > 0
-      ? Math.max(...lastPageResult.data.map(ep => ep.mal_id))
+      ? Math.max(...lastPageResult.data.map((ep) => ep.mal_id))
       : total;
 
   return { total, lastPage, latestEpisode };
 }
 
-// Jikan genre IDs for MAL genres
+// Genre map: slug -> MAL genre ID + label
 export const GENRE_MAP: Record<string, { id: number; label: string }> = {
-  action:       { id: 1,  label: "Action" },
-  adventure:    { id: 2,  label: "Adventure" },
-  comedy:       { id: 4,  label: "Comedy" },
-  drama:        { id: 8,  label: "Drama" },
-  fantasy:      { id: 10, label: "Fantasy" },
-  horror:       { id: 14, label: "Horror" },
-  mystery:      { id: 7,  label: "Mystery" },
-  romance:      { id: 22, label: "Romance" },
-  "sci-fi":     { id: 24, label: "Sci-Fi" },
+  action:          { id: 1,  label: "Action" },
+  adventure:       { id: 2,  label: "Adventure" },
+  comedy:          { id: 4,  label: "Comedy" },
+  drama:           { id: 8,  label: "Drama" },
+  fantasy:         { id: 10, label: "Fantasy" },
+  horror:          { id: 14, label: "Horror" },
+  mystery:         { id: 7,  label: "Mystery" },
+  romance:         { id: 22, label: "Romance" },
+  "sci-fi":        { id: 24, label: "Sci-Fi" },
   "slice-of-life": { id: 36, label: "Slice of Life" },
-  sports:       { id: 30, label: "Sports" },
-  supernatural: { id: 37, label: "Supernatural" },
-  thriller:     { id: 41, label: "Thriller" },
-  mecha:        { id: 18, label: "Mecha" },
+  sports:          { id: 30, label: "Sports" },
+  supernatural:    { id: 37, label: "Supernatural" },
+  thriller:        { id: 41, label: "Thriller" },
+  mecha:           { id: 18, label: "Mecha" },
+};
+
+// Type map: slug -> Jikan type param + label
+export const TYPE_MAP: Record<string, { param: string; label: string; description: string }> = {
+  tv:      { param: "tv",      label: "TV",      description: "Full-length TV series airing on television." },
+  movie:   { param: "movie",   label: "Movie",   description: "Standalone anime films released in theatres or direct." },
+  ova:     { param: "ova",     label: "OVA",     description: "Original Video Animation — released direct to video." },
+  ona:     { param: "ona",     label: "ONA",     description: "Original Net Animation — released online." },
+  special: { param: "special", label: "Special", description: "Side stories, recap episodes and bonus content." },
 };
 
 export const jikan = {
@@ -105,6 +109,10 @@ export const jikan = {
   getByGenre: (genreId: number, page = 1) =>
     jikanFetch<Anime[]>(
       `/anime?genres=${genreId}&order_by=score&sort=desc&limit=24&page=${page}`
+    ),
+  getByType: (type: string, page = 1) =>
+    jikanFetch<Anime[]>(
+      `/anime?type=${type}&order_by=score&sort=desc&limit=24&page=${page}`
     ),
   getGenres: () => jikanFetch<Genre[]>("/genres/anime"),
   getSchedule: (day: string) => jikanFetch<Anime[]>(`/schedules/${day}`),
