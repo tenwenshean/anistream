@@ -1,0 +1,93 @@
+import PQueue from "p-queue";
+import type {
+  Anime,
+  AnimeDetail,
+  Episode,
+  Genre,
+  Recommendation,
+} from "@/types/anime";
+
+const queue = new PQueue({ interval: 1000, intervalCap: 3 });
+const BASE_URL = "https://api.jikan.moe/v4";
+
+async function jikanFetch<T>(path: string): Promise<T> {
+  return queue.add(async () => {
+    const response = await fetch(`${BASE_URL}${path}`, {
+      next: { revalidate: 300 },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Jikan ${response.status}: ${path}`);
+    }
+
+    const json = (await response.json()) as { data: T };
+    return json.data;
+  });
+}
+
+async function fetchEpisodeMeta(
+  id: number
+): Promise<{ total: number; lastPage: number; latestEpisode: number }> {
+  // First fetch to get pagination info
+  const firstPageResult = await queue.add(async () => {
+    const response = await fetch(
+      `${BASE_URL}/anime/${id}/episodes?page=1`,
+      { next: { revalidate: 300 } }
+    );
+    if (!response.ok) return null;
+    return response.json() as Promise<{
+      data: Episode[];
+      pagination: {
+        last_visible_page: number;
+        has_next_page: boolean;
+        items: { count: number; total: number; per_page: number };
+      };
+    }>;
+  });
+
+  if (!firstPageResult) return { total: 1, lastPage: 1, latestEpisode: 1 };
+
+  const lastPage = firstPageResult.pagination.last_visible_page;
+  const total = firstPageResult.pagination.items?.total || lastPage * 100;
+
+  // Fetch the last page to get the actual latest episodes
+  const lastPageResult = await queue.add(async () => {
+    const response = await fetch(
+      `${BASE_URL}/anime/${id}/episodes?page=${lastPage}`,
+      { next: { revalidate: 300 } }
+    );
+    if (!response.ok) return null;
+    return response.json() as Promise<{
+      data: Episode[];
+    }>;
+  });
+
+  // Get the actual latest episode number from the last page of episodes
+  const latestEpisode =
+    lastPageResult?.data && lastPageResult.data.length > 0
+      ? Math.max(...lastPageResult.data.map(ep => ep.mal_id))
+      : total;
+
+  return { total, lastPage, latestEpisode };
+}
+
+export const jikan = {
+  getTopAiring: () => jikanFetch<Anime[]>("/top/anime?filter=airing&limit=12"),
+  getSeasonal: () => jikanFetch<Anime[]>("/seasons/now"),
+  getAnime: (id: number) => jikanFetch<AnimeDetail>(`/anime/${id}`),
+  getEpisodes: (id: number, page = 1) =>
+    jikanFetch<Episode[]>(`/anime/${id}/episodes?page=${page}`),
+  getEpisodeMeta: (id: number) => fetchEpisodeMeta(id),
+  search: (query: string, genres?: string) =>
+    jikanFetch<Anime[]>(
+      `/anime?q=${encodeURIComponent(query)}${
+        genres ? `&genres=${genres}` : ""
+      }&order_by=score&sort=desc`
+    ),
+  getGenres: () => jikanFetch<Genre[]>("/genres/anime"),
+  getSchedule: (day: string) => jikanFetch<Anime[]>(`/schedules/${day}`),
+  getRecommendations: (limit = 12) =>
+    jikanFetch<Recommendation[]>(`/recommendations/anime?limit=${limit}`),
+  getRecentUpdates: (page = 1, limit = 20) =>
+    jikanFetch<Anime[]>(`/anime?order_by=score&sort=desc&limit=${limit}&page=${page}`),
+};
