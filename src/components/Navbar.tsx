@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { LogIn, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { GENRE_MAP, TYPE_MAP } from "@/lib/api/jikan";
 import SearchBar from "@/components/SearchBar";
+import AuthButton from "@/components/AuthButton";
 
 const GENRE_ENTRIES = Object.entries(GENRE_MAP);
 const TYPE_ENTRIES = Object.entries(TYPE_MAP);
@@ -78,9 +79,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-4 flex-1 justify-end">
-        <button className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 hover:border-neutral-700 hover:bg-neutral-800/60 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all">
-          <LogIn className="w-3.5 h-3.5 text-purple-400" /> Login
-        </button>
+        <AuthButton />
       </div>
     </header>
   );
