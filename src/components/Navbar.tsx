@@ -1,5 +1,8 @@
 import Link from "next/link";
-import { Search, LogIn } from "lucide-react";
+import { Search, LogIn, ChevronDown } from "lucide-react";
+import { GENRE_MAP } from "@/lib/api/jikan";
+
+const GENRE_ENTRIES = Object.entries(GENRE_MAP);
 
 export default function Navbar() {
   return (
@@ -14,92 +17,38 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-400">
           <div className="relative group">
             <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-              Genres
+              Genres <ChevronDown className="w-3.5 h-3.5 opacity-60" />
             </button>
-            <div className="absolute left-0 top-full mt-2 hidden min-w-55 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
+            <div className="absolute left-0 top-full mt-2 hidden min-w-56 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
               <div className="grid grid-cols-2 gap-1 text-xs font-semibold text-neutral-300">
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Action
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Romance
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Fantasy
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Comedy
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Drama
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Horror
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Sci-Fi
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Slice of Life
-                </a>
+                {GENRE_ENTRIES.map(([slug, g]) => (
+                  <Link
+                    key={slug}
+                    href={`/genre/${slug}`}
+                    className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
+                  >
+                    {g.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
 
           <div className="relative group">
             <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-              Types
+              Types <ChevronDown className="w-3.5 h-3.5 opacity-60" />
             </button>
             <div className="absolute left-0 top-full mt-2 hidden min-w-45 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
               <div className="grid gap-1 text-xs font-semibold text-neutral-300">
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  TV
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Movie
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  OVA
-                </a>
-                <a
-                  href="#"
-                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400"
-                >
-                  Special
-                </a>
+                {["tv", "movie", "ova", "special"].map((type) => (
+                  <Link
+                    key={type}
+                    href={`/search?q=&type=${type}`}
+                    className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
+                  >
+                    {type.toUpperCase()}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

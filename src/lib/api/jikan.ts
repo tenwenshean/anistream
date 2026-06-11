@@ -71,6 +71,24 @@ async function fetchEpisodeMeta(
   return { total, lastPage, latestEpisode };
 }
 
+// Jikan genre IDs for MAL genres
+export const GENRE_MAP: Record<string, { id: number; label: string }> = {
+  action:       { id: 1,  label: "Action" },
+  adventure:    { id: 2,  label: "Adventure" },
+  comedy:       { id: 4,  label: "Comedy" },
+  drama:        { id: 8,  label: "Drama" },
+  fantasy:      { id: 10, label: "Fantasy" },
+  horror:       { id: 14, label: "Horror" },
+  mystery:      { id: 7,  label: "Mystery" },
+  romance:      { id: 22, label: "Romance" },
+  "sci-fi":     { id: 24, label: "Sci-Fi" },
+  "slice-of-life": { id: 36, label: "Slice of Life" },
+  sports:       { id: 30, label: "Sports" },
+  supernatural: { id: 37, label: "Supernatural" },
+  thriller:     { id: 41, label: "Thriller" },
+  mecha:        { id: 18, label: "Mecha" },
+};
+
 export const jikan = {
   getTopAiring: () => jikanFetch<Anime[]>("/top/anime?filter=airing&limit=12"),
   getSeasonal: () => jikanFetch<Anime[]>("/seasons/now"),
@@ -83,6 +101,10 @@ export const jikan = {
       `/anime?q=${encodeURIComponent(query)}${
         genres ? `&genres=${genres}` : ""
       }&order_by=score&sort=desc`
+    ),
+  getByGenre: (genreId: number, page = 1) =>
+    jikanFetch<Anime[]>(
+      `/anime?genres=${genreId}&order_by=score&sort=desc&limit=24&page=${page}`
     ),
   getGenres: () => jikanFetch<Genre[]>("/genres/anime"),
   getSchedule: (day: string) => jikanFetch<Anime[]>(`/schedules/${day}`),
