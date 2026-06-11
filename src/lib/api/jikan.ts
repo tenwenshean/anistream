@@ -26,8 +26,26 @@ async function jikanFetch<T>(path: string): Promise<T> {
 }
 
 async function fetchEpisodeMeta(
-  id: number
+  id: number,
+  knownEpisodes: number | null = null,
+  animeType: string | null = null
 ): Promise<{ total: number; lastPage: number; latestEpisode: number }> {
+  // Movies and single-episode anime: trust the anime detail directly
+  if (
+    animeType?.toLowerCase() === "movie" ||
+    knownEpisodes === 1
+  ) {
+    const total = knownEpisodes || 1;
+    return { total, lastPage: 1, latestEpisode: total };
+  }
+
+  // If MAL already tells us the episode count, use it directly
+  if (knownEpisodes && knownEpisodes > 0) {
+    const lastPage = Math.ceil(knownEpisodes / 100);
+    return { total: knownEpisodes, lastPage, latestEpisode: knownEpisodes };
+  }
+
+  // Unknown episode count (still airing) — fetch from episodes endpoint
   const firstPageResult = await queue.add(async () => {
     const response = await fetch(
       `${BASE_URL}/anime/${id}/episodes?page=1`,
@@ -49,7 +67,9 @@ async function fetchEpisodeMeta(
   const lastPage = firstPageResult.pagination.last_visible_page;
   const total = firstPageResult.pagination.items?.total || lastPage * 100;
 
+  // Fetch last page to get actual latest episode number
   const lastPageResult = await queue.add(async () => {
+    if (lastPage === 1) return firstPageResult;
     const response = await fetch(
       `${BASE_URL}/anime/${id}/episodes?page=${lastPage}`,
       { next: { revalidate: 300 } }
@@ -99,7 +119,11 @@ export const jikan = {
   getAnime: (id: number) => jikanFetch<AnimeDetail>(`/anime/${id}`),
   getEpisodes: (id: number, page = 1) =>
     jikanFetch<Episode[]>(`/anime/${id}/episodes?page=${page}`),
-  getEpisodeMeta: (id: number) => fetchEpisodeMeta(id),
+  getEpisodeMeta: (
+    id: number,
+    knownEpisodes: number | null = null,
+    animeType: string | null = null
+  ) => fetchEpisodeMeta(id, knownEpisodes, animeType),
   search: (query: string, genres?: string) =>
     jikanFetch<Anime[]>(
       `/anime?q=${encodeURIComponent(query)}${

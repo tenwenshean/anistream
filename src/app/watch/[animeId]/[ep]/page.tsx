@@ -14,15 +14,18 @@ export default async function WatchPage({ params }: WatchPageProps) {
   const { animeId, ep } = await params;
   const activeEpisode = Number(ep) || 1;
 
-  const [anime, recommendations, episodeMeta] = await Promise.all([
-    jikan.getAnime(Number(animeId)),
+  // Fetch anime detail first so we can pass type + episodes to episodeMeta
+  const anime = await jikan.getAnime(Number(animeId));
+
+  const [recommendations, episodeMeta] = await Promise.all([
     jikan.getRecommendations(8),
-    jikan.getEpisodeMeta(Number(animeId)),
+    jikan.getEpisodeMeta(Number(animeId), anime.episodes, anime.type),
   ]);
 
-  // Use the actual latest episode available from MAL
   const totalEpisodes = episodeMeta.latestEpisode;
   const lastPage = episodeMeta.lastPage;
+
+  const isMovie = anime.type?.toLowerCase() === "movie";
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
@@ -33,7 +36,9 @@ export default async function WatchPage({ params }: WatchPageProps) {
           {/* Video Player + Info */}
           <div className="rounded-2xl border border-neutral-900 bg-neutral-900/60 p-3 shadow-2xl">
             <div className="aspect-video w-full rounded-xl bg-neutral-950/90 flex items-center justify-center">
-              <span className="text-neutral-600 text-sm">▶ Episode {activeEpisode}</span>
+              <span className="text-neutral-600 text-sm">
+                ▶ {isMovie ? "Movie" : `Episode ${activeEpisode}`}
+              </span>
             </div>
 
             <div className="mt-6 space-y-3 px-2 pb-2">
@@ -41,14 +46,16 @@ export default async function WatchPage({ params }: WatchPageProps) {
                 {anime.title_english || anime.title}
               </h1>
               <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-400">
-                Episode {activeEpisode}
+                {isMovie ? "Movie" : `Episode ${activeEpisode}`}
               </h2>
               <div className="flex items-center gap-3 text-xs text-neutral-500">
                 {anime.type && <span>{anime.type}</span>}
                 {anime.score && <span className="text-amber-400">★ {anime.score}</span>}
                 {anime.status && <span>{anime.status}</span>}
                 {anime.year && <span>{anime.year}</span>}
-                <span className="text-purple-400">{totalEpisodes} episodes</span>
+                {!isMovie && (
+                  <span className="text-purple-400">{totalEpisodes} episodes</span>
+                )}
               </div>
               <p className="text-sm text-neutral-400 leading-relaxed line-clamp-4">
                 {anime.synopsis || "No synopsis available."}
@@ -56,13 +63,15 @@ export default async function WatchPage({ params }: WatchPageProps) {
             </div>
           </div>
 
-          {/* Paginated Episode Grid */}
-          <EpisodeGrid
-            animeId={animeId}
-            totalEpisodes={totalEpisodes}
-            lastPage={lastPage}
-            activeEpisode={activeEpisode}
-          />
+          {/* Episode Grid — hide for movies */}
+          {!isMovie && (
+            <EpisodeGrid
+              animeId={animeId}
+              totalEpisodes={totalEpisodes}
+              lastPage={lastPage}
+              activeEpisode={activeEpisode}
+            />
+          )}
 
         </section>
 

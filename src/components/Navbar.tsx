@@ -5,6 +5,30 @@ import { GENRE_MAP, TYPE_MAP } from "@/lib/api/jikan";
 const GENRE_ENTRIES = Object.entries(GENRE_MAP);
 const TYPE_ENTRIES = Object.entries(TYPE_MAP);
 
+function NavDropdown({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative group">
+      <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5 py-5">
+        {label} <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+      </button>
+      {/* pt-0 + top-full means no gap — panel sits flush under button */}
+      <div className="absolute left-0 top-full hidden group-hover:block">
+        {/* invisible bridge fills any sub-pixel gap */}
+        <div className="h-1 w-full" />
+        <div className="min-w-40 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-neutral-900 bg-neutral-950/80 backdrop-blur-md px-4 lg:px-8 h-16 flex items-center gap-4">
@@ -17,49 +41,37 @@ export default function Navbar() {
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-400">
 
-          {/* Genres dropdown */}
-          <div className="relative group">
-            <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-              Genres <ChevronDown className="w-3.5 h-3.5 opacity-60" />
-            </button>
-            <div className="absolute left-0 top-full mt-2 hidden min-w-56 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
-              <div className="grid grid-cols-2 gap-1 text-xs font-semibold text-neutral-300">
-                {GENRE_ENTRIES.map(([slug, g]) => (
-                  <Link
-                    key={slug}
-                    href={`/genre/${slug}`}
-                    className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
-                  >
-                    {g.label}
-                  </Link>
-                ))}
-              </div>
+          <NavDropdown label="Genres">
+            <div className="grid grid-cols-2 gap-1 text-xs font-semibold text-neutral-300 w-56">
+              {GENRE_ENTRIES.map(([slug, g]) => (
+                <Link
+                  key={slug}
+                  href={`/genre/${slug}`}
+                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
+                >
+                  {g.label}
+                </Link>
+              ))}
             </div>
-          </div>
+          </NavDropdown>
 
-          {/* Types dropdown */}
-          <div className="relative group">
-            <button className="hover:text-purple-400 transition-colors flex items-center gap-1.5">
-              Types <ChevronDown className="w-3.5 h-3.5 opacity-60" />
-            </button>
-            <div className="absolute left-0 top-full mt-2 hidden min-w-40 rounded-xl border border-neutral-800 bg-neutral-950/95 p-2 shadow-xl backdrop-blur-md group-hover:block">
-              <div className="grid gap-1 text-xs font-semibold text-neutral-300">
-                {TYPE_ENTRIES.map(([slug, t]) => (
-                  <Link
-                    key={slug}
-                    href={`/type/${slug}`}
-                    className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
-                  >
-                    {t.label}
-                  </Link>
-                ))}
-              </div>
+          <NavDropdown label="Types">
+            <div className="grid gap-1 text-xs font-semibold text-neutral-300 w-36">
+              {TYPE_ENTRIES.map(([slug, t]) => (
+                <Link
+                  key={slug}
+                  href={`/type/${slug}`}
+                  className="rounded-lg px-2 py-1.5 hover:bg-neutral-900 hover:text-purple-400 transition-colors"
+                >
+                  {t.label}
+                </Link>
+              ))}
             </div>
-          </div>
+          </NavDropdown>
 
           <Link
             href="/popular"
-            className="hover:text-purple-400 transition-colors flex items-center gap-1.5"
+            className="hover:text-purple-400 transition-colors"
           >
             Popular
           </Link>
