@@ -1,0 +1,1213 @@
+
+> anistream@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.28.112.1:3000
+- Environments: .env.local
+✓ Ready in 598ms
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of E:\watchanime\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * E:\watchanime\anistream\package-lock.json
+
+
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+ GET / 200 in 1431ms (next.js: 601ms, application-code: 830ms)
+ GET / 200 in 227ms (next.js: 5ms, application-code: 222ms)
+ GET / 200 in 202ms (next.js: 4ms, application-code: 198ms)
+[Search] AnimePahe search: "steel ball run", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=steel%20ball%20run
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=steel%20ball%20run
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=steel%20ball%20run
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+ GET / 200 in 245ms (next.js: 6ms, application-code: 240ms)
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Fetching: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Requesting: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Fetching: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Reusing pending request for https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Completed in 21.5s
+[Byparr Cache] Cached 5 cookies for animepahe.pw
+[Byparr] Cached 5 cookies
+[Search] Completed in 21.5s
+ GET /api/anime/search?query=steel%20ball%20run 200 in 21.8s (next.js: 292ms, application-code: 21.5s)
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Fetching: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Reusing pending request for https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Completed in 13.9s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Byparr] Cached 4 cookies
+[Byparr] Cached 4 cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 0s)
+[Byparr] Requesting: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Using 4 cached cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Completed in 21.4s
+[Byparr Cache] Cached 5 cookies for animepahe.pw
+[Byparr] Cached 5 cookies
+[Byparr] Cached 5 cookies
+[Byparr] Cached 5 cookies
+ GET /api/anime/info?id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4 200 in 35.3s (next.js: 40ms, application-code: 35.3s)
+ GET /api/anime/info?id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4 200 in 34.1s (next.js: 4ms, application-code: 34.1s)
+ GET /api/anime/info?id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4 200 in 26.5s (next.js: 5ms, application-code: 26.5s)
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 0s)
+[Byparr] Requesting: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Using 5 cached cookies
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Completed in 21.8s
+[Byparr Cache] Cached 9 cookies for animepahe.pw
+[Byparr] Cached 9 cookies
+[Byparr] Cached 9 cookies
+[Byparr] Cached 9 cookies
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] No video sources found in HTML
+[AnimePahe] fetchEpisodeSources error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] No video sources found in HTML
+[AnimePahe] fetchEpisodeSources error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] No video sources found in HTML
+[AnimePahe] fetchEpisodeSources error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+[Watch API] Error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+[Watch API] Error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+[Watch API] Error: Error: No video sources found
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:201:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  199 |       if (matches.length === 0) {
+  200 |         console.error('[AnimePahe] No video sources found in HTML');
+> 201 |         throw new Error('No video sources found');
+      |               ^
+  202 |       }
+  203 |
+  204 |       console.log(`[AnimePahe] Found ${matches.length} quality options`);
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 22.4s (next.js: 58ms, application-code: 22.4s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 22.4s (next.js: 68ms, application-code: 22.4s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 17.2s (next.js: 3ms, application-code: 17.2s)
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+ GET /watch/61469/1 200 in 57s (next.js: 19ms, application-code: 57s)
+ GET /watch/61469/1 200 in 59s (next.js: 590ms, application-code: 58s)
+[browser] Encountered two children with the same key, `48675`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `38101`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `11751`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `48675`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `38101`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `11751`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Search] AnimePahe search: "Steel Ball Run: JoJo's Bizarre Adventure", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Requesting: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Search] AnimePahe search: "Steel Ball Run: JoJo's Bizarre Adventure", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Search] AnimePahe search: "Steel Ball Run: JoJo's Bizarre Adventure", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Completed in 15.6s
+[Byparr Cache] Cached 7 cookies for animepahe.pw
+[Byparr] Cached 7 cookies
+[Byparr] Cached 7 cookies
+[Byparr] Cached 7 cookies
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Requesting: https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Reusing pending request for https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Reusing pending request for https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Completed in 2.5s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr Cache] Using cached cookies for kwik.cx (age: 0s)
+[Byparr] Requesting: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Using 1 cached cookies
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Reusing pending request for https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Reusing pending request for https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Completed in 2.8s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr Cache] Using cached cookies for kwik.cx (age: 0s)
+[Byparr] Requesting: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Using 1 cached cookies
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Reusing pending request for https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Reusing pending request for https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Completed in 22.6s
+[Byparr Cache] Cached 5 cookies for animepahe.pw
+[Byparr] Cached 5 cookies
+[Byparr] Cached 5 cookies
+[Byparr] Cached 5 cookies
+[Search] Completed in 22.6s
+[Search] Completed in 22.2s
+[Search] Completed in 22.0s
+ GET /api/anime/search?query=Steel+Ball+Run%3A+JoJo%27s+Bizarre+Adventure&page=1 200 in 22.9s (next.js: 279ms, application-code: 22.6s)
+ GET /api/anime/search?query=Steel+Ball+Run%3A+JoJo%27s+Bizarre+Adventure&page=1 200 in 22.2s (next.js: 6ms, application-code: 22.2s)
+ GET /api/anime/search?query=Steel+Ball+Run%3A+JoJo%27s+Bizarre+Adventure&page=1 200 in 22.1s (next.js: 4ms, application-code: 22.1s)
+[Byparr] Completed in 2.9s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[Kwik] Could not find video URL in page
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 24.9s (next.js: 600ms, application-code: 24.3s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 24.2s (next.js: 15ms, application-code: 24.2s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 24.1s (next.js: 10ms, application-code: 24.1s)
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+ GET /watch/61469/1 200 in 25.4s (next.js: 117ms, application-code: 25.3s)
+ GET /watch/61469/1 200 in 24.4s (next.js: 13ms, application-code: 24.4s)
+ GET /watch/61469/1 200 in 25.2s (next.js: 617ms, application-code: 24.5s)
+[browser] Encountered two children with the same key, `48675`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `38101`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `232`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `11751`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Requesting: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Completed in 21.8s
+[Byparr Cache] Cached 9 cookies for animepahe.pw
+[Byparr] Cached 9 cookies
+[Byparr] Cached 9 cookies
+[Byparr] Cached 9 cookies
+[Byparr] Cached 9 cookies
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Requesting: https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Reusing pending request for https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Reusing pending request for https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Processing Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[Kwik] Resolving: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Fetching: https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Reusing pending request for https://kwik.cx/e/mP9jhMFWrkBW
+[Byparr] Completed in 2.5s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr Cache] Using cached cookies for kwik.cx (age: 0s)
+[Byparr] Requesting: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Using 1 cached cookies
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Reusing pending request for https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Reusing pending request for https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Processing Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[Kwik] Resolving: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Fetching: https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Reusing pending request for https://kwik.cx/e/8whr9Ma8nyqA
+[Byparr] Completed in 2.5s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr Cache] Using cached cookies for kwik.cx (age: 0s)
+[Byparr] Requesting: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Using 1 cached cookies
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Reusing pending request for https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Reusing pending request for https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] Processing Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[Kwik] Resolving: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Fetching: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Reusing pending request for https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Completed in 2.5s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Byparr] Cached 1 cookies
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[Kwik] Could not find video URL in page
+[Kwik] HTML preview (first 500 chars): <!DOCTYPE html><html class="no-js" lang="en-US"><!--<![endif]--><head>
+<title>Attention Required! | Cloudflare</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" id="cf_styles-css" href="/cdn-cgi/styles/cf.errors.css">
+<!--[if lt IE 9]><link rel="stylesheet"
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[AnimePahe] fetchEpisodeSources error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+[Watch API] Error: Error: Failed to resolve any video sources
+    at AnimePaheFixed.customFetchEpisodeSources (src\lib\providers\animepahe-fixed.ts:242:15)
+    at async GET (src\app\api\anime\watch\route.ts:43:21)
+  240 |
+  241 |       if (sources.length === 0) {
+> 242 |         throw new Error('Failed to resolve any video sources');
+      |               ^
+  243 |       }
+  244 |
+  245 |       console.log(`[AnimePahe] ✅ Returning ${sources.length} working sources`);
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 30.3s (next.js: 325ms, application-code: 30.0s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 29.9s (next.js: 6ms, application-code: 29.9s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 29.8s (next.js: 4ms, application-code: 29.8s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 500 in 22.9s (next.js: 3ms, application-code: 22.9s)
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Failed to fetch streaming sources: Error: Consumet API 500: /watch
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:72:32)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+ GET /watch/61469/1 200 in 30.2s (next.js: 5ms, application-code: 30.2s)
+ GET /watch/61469/1 200 in 30.8s (next.js: 101ms, application-code: 30.7s)
+ GET /watch/61469/1 200 in 30.2s (next.js: 5ms, application-code: 30.1s)
+✓ Compiled in 156ms
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Requesting: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[AnimePahe] 🎬 Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Fetching: https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Reusing pending request for https://animepahe.pw/play/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Byparr] Completed in 13.9s
+[Byparr Cache] Cached 7 cookies for animepahe.pw
+[Byparr] Cached 7 cookies
+[Byparr] Cached 7 cookies
+[Byparr] Cached 7 cookies
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Adding Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Adding Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Adding Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] ✅ Returning 3 sources (Kwik URLs)
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Adding Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Adding Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Adding Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] ✅ Returning 3 sources (Kwik URLs)
+[AnimePahe] Got HTML, length: 24180
+[AnimePahe] Found 3 quality options
+[AnimePahe] Adding Netflix · 360p: https://kwik.cx/e/mP9jhMFWrkBW
+[AnimePahe] Adding Netflix · 720p: https://kwik.cx/e/8whr9Ma8nyqA
+[AnimePahe] Adding Netflix · 1080p: https://kwik.cx/e/GsjGTsf0BBIc
+[AnimePahe] ✅ Returning 3 sources (Kwik URLs)
+[Watch API] Completed in 13.9s
+[Watch API] Completed in 13.8s
+[Watch API] Completed in 13.8s
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 200 in 14.3s (next.js: 320ms, application-code: 13.9s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 200 in 13.9s (next.js: 3ms, application-code: 13.8s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4%2F6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 200 in 13.8s (next.js: 4ms, application-code: 13.8s)
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+ GET /watch/61469/1 200 in 14.7s (next.js: 97ms, application-code: 14.6s)
+ GET /watch/61469/1 200 in 14.5s (next.js: 342ms, application-code: 14.1s)
+ GET /watch/61469/1 200 in 14.1s (next.js: 4ms, application-code: 14.1s)
+[Watch API] Fetching sources for episode: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch API] Cache hit (age: 22s)
+ GET /api/anime/watch?episodeId=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56 200 in 8ms (next.js: 3ms, application-code: 5ms)
+ GET / 200 in 501ms (next.js: 32ms, application-code: 469ms)
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+[Search] AnimePahe search: "Steel Ball Run: JoJo's Bizarre Adventure", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=Steel%20Ball%20Run%3A%20JoJo's%20Bizarre%20Adventure
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Fetching: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+[Byparr] Requesting: https://animepahe.pw/anime/fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4
+ GET /watch/61469/1 200 in 759ms (next.js: 12ms, application-code: 747ms)
+[browser] Encountered two children with the same key, `30`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `5916`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `34798`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `6347`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1575`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `486`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Stream] Proxying: https://kwik.cx/e/GsjGTsf0BBIc...
+[Stream] Detected Kwik URL, attempting to resolve...
+[Kwik] Resolving via Byparr...
+[Byparr] Requesting: https://kwik.cx/e/GsjGTsf0BBIc
+[Byparr] Completed in 3.9s
+[Byparr Cache] Cached 1 cookies for kwik.cx
+[Kwik] Still blocked by Cloudflare
+[Stream] Could not resolve Kwik URL, proxying as-is
+ GET /api/anime/stream?url=https%3A%2F%2Fkwik.cx%2Fe%2FGsjGTsf0BBIc 200 in 4.8s (next.js: 544ms, application-code: 4.2s)
+[browser] [VideoPlayer] Video error 
+    at VideoPlayer.useEffect.handleError (src/components/VideoPlayer.tsx:111:15)
+  109 |     };
+  110 |     const handleError = () => {
+> 111 |       console.error('[VideoPlayer] Video error');
+      |               ^
+  112 |       setIsLoading(false);
+  113 |       if (!hlsRef.current) {
+  114 |         setError("Failed to load video. The source might be unavailable."); (src/components/VideoPlayer.tsx:111:15)
+ GET / 200 in 88ms (next.js: 4ms, application-code: 84ms)
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Byparr] Completed in 15.2s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Search] Completed in 15.2s
+ GET /api/anime/search?query=Steel+Ball+Run%3A+JoJo%27s+Bizarre+Adventure&page=1 200 in 15.5s (next.js: 307ms, application-code: 15.2s)
+[Byparr] Completed in 14.9s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 0s)
+[Byparr] Requesting: https://animepahe.pw/api?m=release&id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4&sort=episode_asc&page=1
+[Byparr] Using 4 cached cookies
+[Byparr] Completed in 16.6s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+ GET /api/anime/info?id=fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4 200 in 32.2s (next.js: 595ms, application-code: 31.6s)
+[Watch] Trying search queries: [ 'One Piece' ]
+[SearchHelper] Best match for "One Piece": "One Piece" (score: 1.00)
+[Watch] Found match with query: "One Piece"
+[Search] AnimePahe search: "One Piece", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=One%20Piece
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=One%20Piece
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 43s)
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=One%20Piece
+[Byparr] Using 4 cached cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+[Byparr] Fetching: https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 26s)
+[Byparr] Requesting: https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+[Byparr] Using 4 cached cookies
+ GET /watch/21/1 200 in 29ms (next.js: 17ms, application-code: 13ms)
+[Watch] Trying search queries: [ 'One Piece' ]
+[SearchHelper] Best match for "One Piece": "One Piece" (score: 1.00)
+[Watch] Found match with query: "One Piece"
+[Search] AnimePahe search: "One Piece", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=One%20Piece
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=One%20Piece
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=search&q=One%20Piece
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+[Byparr] Fetching: https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+[Byparr] Reusing pending request for https://animepahe.pw/anime/8a27b10e-1603-e604-06f5-d061dbb4f1f2
+ GET /watch/21/1 200 in 6.2s (next.js: 11ms, application-code: 6.2s)
+ GET /watch/21/1 200 in 2.3s (next.js: 5ms, application-code: 2.3s)
+ GET / 200 in 331ms (next.js: 7ms, application-code: 324ms)
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+ GET /watch/61469/1 200 in 175ms (next.js: 10ms, application-code: 165ms)
+[browser] Encountered two children with the same key, `30`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `5916`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `34798`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `6347`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1575`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `486`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `30`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `5916`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `34798`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `6347`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1575`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `486`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] [VideoPlayer] Video error 
+    at VideoPlayer.useEffect.handleError (src/components/VideoPlayer.tsx:111:15)
+  109 |     };
+  110 |     const handleError = () => {
+> 111 |       console.error('[VideoPlayer] Video error');
+      |               ^
+  112 |       setIsLoading(false);
+  113 |       if (!hlsRef.current) {
+  114 |         setError("Failed to load video. The source might be unavailable."); (src/components/VideoPlayer.tsx:111:15)
+[Watch] Trying search queries: [
+  "Steel Ball Run: JoJo's Bizarre Adventure",
+  'Steel Ball Run',
+  'Steel Ball Run JoJo s Bizarre Adventure',
+  'Steel Ball Run:'
+]
+[SearchHelper] Best match for "Steel Ball Run: JoJo's Bizarre Adventure": "Steel Ball Run: JoJo's Bizarre Adventure" (score: 1.00)
+[Watch] Found match with query: "Steel Ball Run: JoJo's Bizarre Adventure"
+[Watch] Fetching sources for episode 1, ID: fe7c0524-f45b-7d6f-a4b2-7812c8e8dcf4/6f6ff918d2cac106ac457a7f545cc10ce318e09e8fb79709014334b5a160ef56
+[Watch] Got 3 sources
+[Watch] Selected quality: 1080p
+ GET /watch/61469/1 200 in 463ms (next.js: 18ms, application-code: 445ms)
+[browser] Encountered two children with the same key, `30`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `5916`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `34798`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `47917`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `40571`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `6347`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1185`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `9756`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `1575`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `486`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `14719`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] Encountered two children with the same key, `42897`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[browser] [VideoPlayer] Video error 
+    at VideoPlayer.useEffect.handleError (src/components/VideoPlayer.tsx:111:15)
+  109 |     };
+  110 |     const handleError = () => {
+> 111 |       console.error('[VideoPlayer] Video error');
+      |               ^
+  112 |       setIsLoading(false);
+  113 |       if (!hlsRef.current) {
+  114 |         setError("Failed to load video. The source might be unavailable."); (src/components/VideoPlayer.tsx:111:15)
+[Byparr] Completed in 14.6s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Byparr] Cached 4 cookies
+[Search] Completed in 14.6s
+[Search] Completed in 10.7s
+ GET /api/anime/search?query=One+Piece&page=1 200 in 14.6s (next.js: 3ms, application-code: 14.6s)
+ GET /api/anime/search?query=One+Piece&page=1 200 in 10.8s (next.js: 5ms, application-code: 10.7s)
+[Byparr] Completed in 16.6s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Byparr] Cached 4 cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 0s)
+[Byparr] Requesting: https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+[Byparr] Using 4 cached cookies
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+[Byparr] Fetching: https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+[Byparr] Reusing pending request for https://animepahe.pw/api?m=release&id=8a27b10e-1603-e604-06f5-d061dbb4f1f2&sort=episode_asc&page=1
+ GET / 200 in 80ms (next.js: 3ms, application-code: 77ms)
+[browser] Encountered two children with the same key, `62568`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. 
+[Watch] Trying search queries: [
+  'Re:ZERO -Starting Life in Another World- Season 4',
+  'Re',
+  'Re ZERO Starting Life in Another World Season 4',
+  'Re:ZERO -Starting Life'
+]
+[SearchHelper] Best match for "Re:ZERO -Starting Life in Another World- Season 4": "undefined" (score: 0.00)
+[Search] AnimePahe search: "Re:ZERO -Starting Life in Another World- Season 4", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Re%3AZERO%20-Starting%20Life%20in%20Another%20World-%20Season%204
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Re%3AZERO%20-Starting%20Life%20in%20Another%20World-%20Season%204
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 4s)
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=Re%3AZERO%20-Starting%20Life%20in%20Another%20World-%20Season%204
+[Byparr] Using 4 cached cookies
+[Search] AnimePahe search: "Re", page: 1
+[Search] This may take 30-90 seconds on first request (Cloudflare bypass)...
+[AnimePahe] Intercepting GET: https://animepahe.pw/api?m=search&q=Re
+[Byparr] Fetching: https://animepahe.pw/api?m=search&q=Re
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 4s)
+[Byparr] Requesting: https://animepahe.pw/api?m=search&q=Re
+[Byparr] Using 4 cached cookies
+[Byparr] Completed in 13.9s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Byparr] Cached 4 cookies
+Info error: Error: Cannot read properties of undefined (reading 'map')
+    at async GET (src\app\api\anime\info\route.ts:18:18)
+  16 |     }
+  17 |
+> 18 |     const info = await animepahe.fetchAnimeInfo(id);
+     |                  ^
+  19 |     return NextResponse.json(info);
+  20 |   } catch (error) {
+  21 |     console.error("Info error:", error);
+Info error: Error: Cannot read properties of undefined (reading 'map')
+    at async GET (src\app\api\anime\info\route.ts:18:18)
+  16 |     }
+  17 |
+> 18 |     const info = await animepahe.fetchAnimeInfo(id);
+     |                  ^
+  19 |     return NextResponse.json(info);
+  20 |   } catch (error) {
+  21 |     console.error("Info error:", error);
+ GET /api/anime/info?id=8a27b10e-1603-e604-06f5-d061dbb4f1f2 500 in 30.7s (next.js: 5ms, application-code: 30.7s)
+ GET /api/anime/info?id=8a27b10e-1603-e604-06f5-d061dbb4f1f2 500 in 26.9s (next.js: 15ms, application-code: 26.8s)
+Consumet failed, falling back to Jikan: Error: Consumet API 500: /info
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:61:23)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+Consumet failed, falling back to Jikan: Error: Consumet API 500: /info
+    at consumetFetch (src\lib\api\consumet.ts:28:11)
+    at async WatchPage (src\app\watch\[animeId]\[ep]\page.tsx:61:23)
+  26 |
+  27 |   if (!response.ok) {
+> 28 |     throw new Error(`Consumet API ${response.status}: ${endpoint}`);
+     |           ^
+  29 |   }
+  30 |
+  31 |   return response.json() as Promise<T>;
+[Byparr] Completed in 16.7s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Search] Completed in 16.7s
+ GET /api/anime/search?query=Re&page=1 200 in 16.7s (next.js: 3ms, application-code: 16.7s)
+[SearchHelper] Best match for "Re:ZERO -Starting Life in Another World- Season 4": "Re:ZERO -Starting Life in Another World-" (score: 1.00)
+[Watch] Found match with query: "Re"
+[AnimePahe] Intercepting GET: https://animepahe.pw/anime/b5c58442-00e0-c2d2-f7e9-cc6de926945f
+[Byparr] Fetching: https://animepahe.pw/anime/b5c58442-00e0-c2d2-f7e9-cc6de926945f
+[Byparr Cache] Using cached cookies for animepahe.pw (age: 4s)
+[Byparr] Requesting: https://animepahe.pw/anime/b5c58442-00e0-c2d2-f7e9-cc6de926945f
+[Byparr] Using 4 cached cookies
+[Byparr] Completed in 16.9s
+[Byparr Cache] Cached 4 cookies for animepahe.pw
+[Byparr] Cached 4 cookies
+[Search] Completed in 16.9s
+ GET /api/anime/search?query=Re%3AZERO+-Starting+Life+in+Another+World-+Season+4&page=1 200 in 16.9s (next.js: 2ms, application-code: 16.9s)
+[?25h

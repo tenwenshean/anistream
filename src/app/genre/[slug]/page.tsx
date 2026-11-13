@@ -2,26 +2,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import AnimeCard from "@/components/AnimeCard";
-import { jikan, GENRE_MAP } from "@/lib/api/jikan";
+import { GENRE_MAP } from "@/lib/api/jikan";
+import { getByGenre } from "@/lib/api/anilist";
 import type { AnimeCardProps } from "@/components/AnimeCard";
-import type { Anime } from "@/types/anime";
 
 interface GenrePageProps {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ page?: string }>;
-}
-
-function toCard(anime: Anime): AnimeCardProps {
-  return {
-    mal_id: anime.mal_id,
-    title: anime.title_english || anime.title,
-    image_url:
-      anime.images.webp?.large_image_url || anime.images.jpg.large_image_url,
-    type: anime.type,
-    episodes: anime.episodes,
-    score: anime.score,
-    airing: anime.airing ?? null,
-  };
 }
 
 export async function generateStaticParams() {
@@ -41,8 +28,7 @@ export default async function GenrePage({ params, searchParams }: GenrePageProps
   let fetchError = false;
 
   try {
-    const data = await jikan.getByGenre(genre.id, page);
-    results = data.map(toCard);
+    results = await getByGenre(genre.label, page);
   } catch {
     fetchError = true;
   }

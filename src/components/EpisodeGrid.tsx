@@ -4,117 +4,77 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+const PER_PAGE = 50;
+
 interface EpisodeGridProps {
   animeId: string;
   totalEpisodes: number;
-  lastPage: number;
   activeEpisode: number;
 }
 
 export default function EpisodeGrid({
   animeId,
   totalEpisodes,
-  lastPage,
   activeEpisode,
 }: EpisodeGridProps) {
-  const initialPage = Math.ceil(activeEpisode / 100);
-  const [page, setPage] = useState(Math.max(1, initialPage));
+  const lastPage = Math.max(1, Math.ceil(totalEpisodes / PER_PAGE));
+  // open on the page holding the episode being watched
+  const [page, setPage] = useState(
+    Math.min(lastPage, Math.max(1, Math.ceil(activeEpisode / PER_PAGE)))
+  );
 
-  const start = (page - 1) * 100 + 1;
-  const end = Math.min(page * 100, totalEpisodes);
+  const start = (page - 1) * PER_PAGE + 1;
+  const end = Math.min(page * PER_PAGE, totalEpisodes);
   const episodes = Array.from({ length: end - start + 1 }, (_, i) => start + i);
 
+  const arrowClass =
+    "flex h-7 w-7 items-center justify-center rounded-md border border-neutral-800 bg-neutral-900/60 text-neutral-400 transition-colors hover:border-purple-500/60 hover:text-purple-200 disabled:cursor-not-allowed disabled:opacity-30";
+
   return (
-    <section className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-neutral-500">
-          Episodes
-        </h3>
-        <span className="text-xs text-neutral-600">
-          {start}–{end} of {totalEpisodes}
-        </span>
+    <div className="rounded-2xl border border-neutral-900 bg-neutral-900/60 p-6 shadow-2xl">
+      <div className="mb-4 flex items-center justify-between">
+        <h3 className="text-lg font-semibold text-white">Episodes</h3>
+        {lastPage > 1 && (
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setPage((p) => p - 1)}
+              disabled={page === 1}
+              className={arrowClass}
+              aria-label={`Previous ${PER_PAGE} episodes`}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <span className="min-w-16 text-center text-xs text-neutral-500">
+              {start}–{end}
+            </span>
+            <button
+              onClick={() => setPage((p) => p + 1)}
+              disabled={page === lastPage}
+              className={arrowClass}
+              aria-label={`Next ${PER_PAGE} episodes`}
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Episode buttons */}
-      <div className="grid grid-cols-5 gap-2 sm:grid-cols-8 lg:grid-cols-10">
+      <div className="grid grid-cols-8 gap-1.5 sm:grid-cols-10 md:grid-cols-12">
         {episodes.map((episode) => (
           <Link
             key={episode}
             href={`/watch/${animeId}/${episode}`}
-            className={`rounded-lg border px-3 py-2 text-sm font-semibold text-center transition-all ${
-              activeEpisode === episode
-                ? "border-purple-500 bg-purple-500/20 text-purple-200"
-                : "border-neutral-800 bg-neutral-900/60 text-neutral-400 hover:border-purple-500/60 hover:text-purple-200"
+            aria-current={episode === activeEpisode ? "page" : undefined}
+            className={`flex h-8 items-center justify-center rounded-md text-xs font-semibold transition-colors ${
+              episode === activeEpisode
+                ? "bg-purple-500 text-white"
+                : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700 hover:text-white"
             }`}
-            aria-current={activeEpisode === episode ? "page" : undefined}
           >
             {episode}
           </Link>
         ))}
       </div>
-
-      {/* Pagination controls */}
-      {lastPage > 1 && (
-        <div className="flex items-center justify-between pt-2">
-
-          <button
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-            className="flex items-center gap-1.5 rounded-lg border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-xs font-semibold text-neutral-400 transition-all hover:border-purple-500/60 hover:text-purple-200 disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft className="w-3.5 h-3.5" /> Prev
-          </button>
-
-          {/* Page range pills e.g. 1-100, 101-200 */}
-          <div className="flex items-center gap-1.5 flex-wrap justify-center">
-            {Array.from({ length: lastPage }, (_, i) => i + 1).map((p) => {
-              const rangeStart = (p - 1) * 100 + 1;
-              const rangeEnd = Math.min(p * 100, totalEpisodes);
-
-              const show =
-                p === 1 ||
-                p === lastPage ||
-                Math.abs(p - page) <= 1;
-
-              const showDotsBefore = p === page - 2 && page > 3;
-              const showDotsAfter = p === page + 2 && page < lastPage - 2;
-
-              if (showDotsBefore || showDotsAfter) {
-                return (
-                  <span key={p} className="text-neutral-600 text-xs px-1">
-                    ...
-                  </span>
-                );
-              }
-
-              if (!show) return null;
-
-              return (
-                <button
-                  key={p}
-                  onClick={() => setPage(p)}
-                  className={`rounded-lg border px-2.5 py-1.5 text-xs font-semibold transition-all whitespace-nowrap ${
-                    p === page
-                      ? "border-purple-500 bg-purple-500/20 text-purple-200"
-                      : "border-neutral-800 bg-neutral-900/60 text-neutral-400 hover:border-purple-500/60 hover:text-purple-200"
-                  }`}
-                >
-                  {rangeStart}–{rangeEnd}
-                </button>
-              );
-            })}
-          </div>
-
-          <button
-            onClick={() => setPage((p) => Math.min(lastPage, p + 1))}
-            disabled={page === lastPage}
-            className="flex items-center gap-1.5 rounded-lg border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-xs font-semibold text-neutral-400 transition-all hover:border-purple-500/60 hover:text-purple-200 disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            Next <ChevronRight className="w-3.5 h-3.5" />
-          </button>
-
-        </div>
-      )}
-    </section>
+    </div>
   );
 }

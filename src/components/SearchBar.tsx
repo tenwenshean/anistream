@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Search, Star, Tv } from "lucide-react";
 import Image from "next/image";
+import { searchAnime } from "@/lib/api/anilist";
 
 interface SuggestionAnime {
   mal_id: number;
@@ -45,39 +46,33 @@ export default function SearchBar() {
       return;
     }
 
+    // drop answers to older keystrokes so they can't overwrite newer ones
+    const controller = new AbortController();
     debounceRef.current = setTimeout(async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `https://api.jikan.moe/v4/anime?q=${encodeURIComponent(query.trim())}&limit=5&order_by=score&sort=desc`
-        );
-        const json = await res.json();
-        const results: SuggestionAnime[] = (json.data ?? []).map((a: {
-          mal_id: number;
-          title_english: string | null;
-          title: string;
-          images: { jpg: { image_url: string } };
-          type: string | null;
-          score: number | null;
-          episodes: number | null;
-        }) => ({
+        const results: SuggestionAnime[] = (
+          await searchAnime(query.trim(), 5, controller.signal)
+        ).map((a) => ({
           mal_id: a.mal_id,
-          title: a.title_english || a.title,
-          image_url: a.images.jpg.image_url,
-          type: a.type,
-          score: a.score,
-          episodes: a.episodes,
+          title: a.title,
+          image_url: a.thumbnail_url,
+          type: a.type ?? null,
+          score: a.score ?? null,
+          episodes: a.episodes ?? null,
         }));
         setSuggestions(results);
         setOpen(results.length > 0);
       } catch {
+        if (controller.signal.aborted) return;
         setSuggestions([]);
       } finally {
-        setLoading(false);
+        if (!controller.signal.aborted) setLoading(false);
       }
     }, 300);
 
     return () => {
+      controller.abort();
       if (debounceRef.current) clearTimeout(debounceRef.current);
     };
   }, [query]);

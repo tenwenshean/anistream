@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { jikan } from "@/lib/api/jikan";
+import { notFound } from "next/navigation";
+import { getAnimeByMalId } from "@/lib/api/anilist";
+import KuhiPlayer from "@/components/KuhiPlayer";
 import EpisodeGrid from "@/components/EpisodeGrid";
 
 interface WatchPageProps {
@@ -14,18 +16,13 @@ export default async function WatchPage({ params }: WatchPageProps) {
   const { animeId, ep } = await params;
   const activeEpisode = Number(ep) || 1;
 
-  // Fetch anime detail first so we can pass type + episodes to episodeMeta
-  const anime = await jikan.getAnime(Number(animeId));
+  // URLs use MAL ids; AniList also gives the AniList id the kuhi player needs
+  const anime = await getAnimeByMalId(Number(animeId));
+  if (!anime) notFound();
 
-  const [recommendations, episodeMeta] = await Promise.all([
-    jikan.getRecommendations(8),
-    jikan.getEpisodeMeta(Number(animeId), anime.episodes, anime.type),
-  ]);
-
-  const totalEpisodes = episodeMeta.latestEpisode;
-  const lastPage = episodeMeta.lastPage;
-
-  const isMovie = anime.type?.toLowerCase() === "movie";
+  // for shows still airing this is the number aired so far
+  const totalEpisodes = anime.episodes ?? 0;
+  const { isMovie, recommendations } = anime;
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100">
@@ -33,42 +30,52 @@ export default async function WatchPage({ params }: WatchPageProps) {
 
         <section className="flex w-full flex-col gap-6 lg:flex-[3]">
 
-          {/* Video Player + Info */}
-          <div className="rounded-2xl border border-neutral-900 bg-neutral-900/60 p-3 shadow-2xl">
-            <div className="aspect-video w-full rounded-xl bg-neutral-950/90 flex items-center justify-center">
-              <span className="text-neutral-600 text-sm">
-                ▶ {isMovie ? "Movie" : `Episode ${activeEpisode}`}
-              </span>
-            </div>
-
-            <div className="mt-6 space-y-3 px-2 pb-2">
-              <h1 className="text-2xl font-semibold text-white">
-                {anime.title_english || anime.title}
-              </h1>
-              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-400">
-                {isMovie ? "Movie" : `Episode ${activeEpisode}`}
-              </h2>
-              <div className="flex items-center gap-3 text-xs text-neutral-500">
-                {anime.type && <span>{anime.type}</span>}
-                {anime.score && <span className="text-amber-400">★ {anime.score}</span>}
-                {anime.status && <span>{anime.status}</span>}
-                {anime.year && <span>{anime.year}</span>}
-                {!isMovie && (
-                  <span className="text-purple-400">{totalEpisodes} episodes</span>
-                )}
+          {/* Anime Info Card */}
+          <div className="rounded-2xl border border-neutral-900 bg-neutral-900/60 p-6 shadow-2xl">
+            <div className="flex gap-6">
+              {/* Poster */}
+              <div className="relative h-48 w-32 shrink-0 overflow-hidden rounded-lg border border-neutral-800">
+                <Image
+                  src={anime.image_url}
+                  alt={anime.title}
+                  fill
+                  className="object-cover"
+                  sizes="128px"
+                />
               </div>
-              <p className="text-sm text-neutral-400 leading-relaxed line-clamp-4">
-                {anime.synopsis || "No synopsis available."}
-              </p>
+
+              {/* Info */}
+              <div className="flex-1 space-y-3">
+                <h1 className="text-3xl font-bold text-white">
+                  {anime.title}
+                </h1>
+                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-400">
+                  {isMovie ? "Movie" : `Episode ${activeEpisode}`}
+                </h2>
+                <div className="flex items-center gap-3 text-xs text-neutral-500">
+                  {anime.type && <span>{anime.type}</span>}
+                  {anime.score && <span className="text-amber-400">★ {anime.score}</span>}
+                  {anime.status && <span>{anime.status}</span>}
+                  {anime.year && <span>{anime.year}</span>}
+                  {!isMovie && totalEpisodes > 0 && (
+                    <span className="text-purple-400">{totalEpisodes} episodes</span>
+                  )}
+                </div>
+                <p className="text-sm text-neutral-400 leading-relaxed line-clamp-4">
+                  {anime.synopsis || "No synopsis available."}
+                </p>
+              </div>
             </div>
           </div>
 
+          {/* Video Player */}
+          <KuhiPlayer anilistId={anime.anilist_id} episode={isMovie ? 1 : activeEpisode} />
+
           {/* Episode Grid — hide for movies */}
-          {!isMovie && (
+          {!isMovie && totalEpisodes > 0 && (
             <EpisodeGrid
               animeId={animeId}
               totalEpisodes={totalEpisodes}
-              lastPage={lastPage}
               activeEpisode={activeEpisode}
             />
           )}
@@ -82,30 +89,29 @@ export default async function WatchPage({ params }: WatchPageProps) {
               Recommended
             </h3>
             <div className="mt-4 space-y-4">
-              {recommendations.map((rec) => {
-                const entry = rec.entry[0];
-                if (!entry) return null;
-                return (
-                  <Link
-                    key={entry.mal_id}
-                    href={`/watch/${entry.mal_id}/1`}
-                    className="flex items-center gap-3 group"
-                  >
-                    <div className="relative h-14 w-12 shrink-0 overflow-hidden rounded-lg border border-neutral-800">
-                      <Image
-                        src={entry.images.jpg.image_url}
-                        alt={entry.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        sizes="48px"
-                      />
-                    </div>
-                    <p className="text-sm font-semibold text-neutral-200 group-hover:text-purple-400 transition-colors line-clamp-2">
-                      {entry.title}
-                    </p>
-                  </Link>
-                );
-              })}
+              {recommendations.length === 0 && (
+                <p className="text-sm text-neutral-500">No recommendations yet.</p>
+              )}
+              {recommendations.map((entry) => (
+                <Link
+                  key={entry.mal_id}
+                  href={`/watch/${entry.mal_id}/1`}
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="relative h-14 w-12 shrink-0 overflow-hidden rounded-lg border border-neutral-800">
+                    <Image
+                      src={entry.image_url}
+                      alt={entry.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="48px"
+                    />
+                  </div>
+                  <p className="text-sm font-semibold text-neutral-200 group-hover:text-purple-400 transition-colors line-clamp-2">
+                    {entry.title}
+                  </p>
+                </Link>
+              ))}
             </div>
           </div>
         </aside>

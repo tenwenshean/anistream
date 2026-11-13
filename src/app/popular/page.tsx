@@ -1,12 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { jikan } from '@/lib/api/jikan';
-import AnimeCard from '@/components/AnimeCard';
-import type { Anime } from '@/types/anime';
+import { getPopular } from '@/lib/api/anilist';
+import AnimeCard, { type AnimeCardProps } from '@/components/AnimeCard';
 
 export default function PopularPage() {
-  const [anime, setAnime] = useState<Anime[]>([]);
+  const [anime, setAnime] = useState<AnimeCardProps[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -16,7 +15,7 @@ export default function PopularPage() {
       setIsLoading(true);
       setError(null);
       try {
-        const data = await jikan.getRecentUpdates(currentPage, 20);
+        const data = await getPopular(currentPage, 20);
         setAnime(data);
       } catch (err) {
         setError('Failed to fetch popular anime. Please try again later.');
@@ -56,16 +55,7 @@ export default function PopularPage() {
           <>
             <section className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
               {anime.map((item) => (
-                <AnimeCard
-                  key={item.mal_id}
-                  mal_id={item.mal_id}
-                  title={item.title_english || item.title}
-                  image_url={item.images.jpg.image_url}
-                  type={item.type}
-                  episodes={item.episodes}
-                  score={item.score}
-                  airing={item.airing}
-                />
+                <AnimeCard key={item.mal_id} {...item} />
               ))}
             </section>
 

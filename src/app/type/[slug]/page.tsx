@@ -2,26 +2,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import AnimeCard from "@/components/AnimeCard";
-import { jikan, TYPE_MAP } from "@/lib/api/jikan";
+import { TYPE_MAP } from "@/lib/api/jikan";
+import { getByFormat } from "@/lib/api/anilist";
 import type { AnimeCardProps } from "@/components/AnimeCard";
-import type { Anime } from "@/types/anime";
 
 interface TypePageProps {
   params: Promise<{ slug: string }>;
   searchParams: Promise<{ page?: string }>;
-}
-
-function toCard(anime: Anime): AnimeCardProps {
-  return {
-    mal_id: anime.mal_id,
-    title: anime.title_english || anime.title,
-    image_url:
-      anime.images.webp?.large_image_url || anime.images.jpg.large_image_url,
-    type: anime.type,
-    episodes: anime.episodes,
-    score: anime.score,
-    airing: anime.airing ?? null,
-  };
 }
 
 export async function generateStaticParams() {
@@ -41,8 +28,8 @@ export default async function TypePage({ params, searchParams }: TypePageProps) 
   let fetchError = false;
 
   try {
-    const data = await jikan.getByType(typeEntry.param, page);
-    results = data.map(toCard);
+    // the type params (tv, movie, ova, ona, special) are AniList formats
+    results = await getByFormat(typeEntry.param, page);
   } catch {
     fetchError = true;
   }

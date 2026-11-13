@@ -1,5 +1,5 @@
 import AnimeCard, { AnimeCardProps } from "@/components/AnimeCard";
-import { jikan } from "@/lib/api/jikan";
+import { searchAnime as searchAniList } from "@/lib/api/anilist";
 
 export const dynamic = "force-dynamic";
 
@@ -7,17 +7,7 @@ async function searchAnime(query: string): Promise<AnimeCardProps[]> {
   if (!query.trim()) return [];
 
   try {
-    const results = await jikan.search(query);
-    return results.map((anime) => ({
-      mal_id: anime.mal_id,
-      title: anime.title_english || anime.title,
-      image_url:
-        anime.images.webp.large_image_url || anime.images.jpg.large_image_url,
-      type: anime.type,
-      episodes: anime.episodes,
-      score: anime.score,
-      airing: anime.status?.toLowerCase().includes("airing") ?? null,
-    }));
+    return await searchAniList(query);
   } catch {
     return [];
   }

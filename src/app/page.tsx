@@ -2,22 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { Flame, TrendingUp, ChevronRight } from 'lucide-react';
 import AnimeCard, { AnimeCardProps } from '@/components/AnimeCard';
-import { jikan } from '@/lib/api/jikan';
+import { getTopAiring as fetchTopAiring, getSeasonal } from '@/lib/api/anilist';
 import HeroBanner from "@/components/HeroBanner";
 
 async function getTopAiring(): Promise<AnimeCardProps[]> {
   try {
-    const results = await jikan.getTopAiring();
-    return results.map((anime) => ({
-      mal_id: anime.mal_id,
-      title: anime.title_english || anime.title,
-      image_url:
-        anime.images.webp?.large_image_url || anime.images.jpg.large_image_url,
-      type: anime.type,
-      episodes: anime.episodes,
-      score: anime.score,
-      airing: true,
-    }));
+    return await fetchTopAiring();
   } catch (error) {
     console.error(error);
     return [];
@@ -26,17 +16,7 @@ async function getTopAiring(): Promise<AnimeCardProps[]> {
 
 async function getSeasonalAnime(): Promise<AnimeCardProps[]> {
   try {
-    const results = await jikan.getSeasonal();
-    return results.slice(0, 12).map((anime) => ({
-      mal_id: anime.mal_id,
-      title: anime.title_english || anime.title,
-      image_url:
-        anime.images.webp?.large_image_url || anime.images.jpg.large_image_url,
-      type: anime.type,
-      episodes: anime.episodes,
-      score: anime.score,
-      airing: anime.status?.toLowerCase().includes("airing") ?? null,
-    }));
+    return await getSeasonal();
   } catch (error) {
     console.error(error);
     return [];
@@ -67,8 +47,8 @@ export default async function AnimeSugeLanding() {
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-5">
-            {topAiring.map((anime) => (
-              <AnimeCard key={anime.mal_id} {...anime} />
+            {topAiring.map((anime, index) => (
+              <AnimeCard key={`top-${anime.mal_id}-${index}`} {...anime} />
             ))}
           </div>
         </section>
@@ -84,8 +64,8 @@ export default async function AnimeSugeLanding() {
             </Link>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-5">
-            {seasonal.map((anime) => (
-              <AnimeCard key={anime.mal_id} {...anime} />
+            {seasonal.map((anime, index) => (
+              <AnimeCard key={`seasonal-${anime.mal_id}-${index}`} {...anime} />
             ))}
           </div>
         </section>

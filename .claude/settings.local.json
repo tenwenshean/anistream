@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"http://localhost:3000/api/anime/search?query=naruto&page=1\")",
+      "Bash(curl *)",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\(d['results'][0]['id'] if 'results' in d else d\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\(d['episodes'][0]['id'] if 'episodes' in d and len\\(d['episodes']\\) > 0 else d\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Video sources available:', len\\(d.get\\('sources', []\\)\\)\\) if 'sources' in d else print\\('✗ Error:', d.get\\('error', d\\)\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Video sources:', len\\(d.get\\('sources', []\\)\\), 'sources'\\) if 'sources' in d and len\\(d.get\\('sources', []\\)\\) > 0 else print\\('✗ Error:', d.get\\('error', d\\)\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Found', len\\(d.get\\('sources', []\\)\\), 'video sources:', [s['quality'] for s in d.get\\('sources', []\\)[:3]]\\) if 'sources' in d else print\\('✗ Error:', d.get\\('error', 'Unknown'\\)\\)\")",
+      "Bash(npm run *)",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Sources:', len\\(d.get\\('sources', []\\)\\)\\) if 'sources' in d else print\\('✗ Error:', d.get\\('error', 'Unknown'\\)\\)\")",
+      "Bash(taskkill *)",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Sources:', len\\(d.get\\('sources', []\\)\\), '- First URL:', d['sources'][0]['url'][:50] if d.get\\('sources'\\) else 'N/A'\\) if 'sources' in d else print\\('✗ Error:', d.get\\('error', d\\)\\)\")",
+      "Bash(cmd *)",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Found', len\\(d.get\\('sources', []\\)\\), 'video sources'\\) if 'sources' in d and len\\(d.get\\('sources', []\\)\\) > 0 else print\\('✗', d.get\\('error', d\\)\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Warmup:', d.get\\('message', d\\)\\)\")",
+      "Bash(tasklist)",
+      "Bash(curl -s \"http://localhost:3000\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Byparr warmed up:', d.get\\('stats', {}\\).get\\('cachedDomains', 0\\), 'domains cached'\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Search:', d['results'][0]['title'], '-', d['results'][0]['id']\\) if 'results' in d and len\\(d['results']\\) > 0 else print\\('✗', d\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Info:', d['title'], '-', len\\(d.get\\('episodes', []\\)\\), 'episodes'\\); print\\(' First episode ID:', d['episodes'][0]['id']\\) if d.get\\('episodes'\\) else print\\('No episodes'\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Video sources found:', len\\(d.get\\('sources', []\\)\\)\\) if 'sources' in d else print\\('✗ Error:', d.get\\('error', d\\)\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('✓ Sources:', len\\(d.get\\('sources', []\\)\\)\\) if 'sources' in d else print\\('✗', d.get\\('error'\\)\\)\")",
+      "Bash(python -c \"import sys, json; d=json.load\\(sys.stdin\\); print\\('Sources:', len\\(d.get\\('sources', []\\)\\), '| Error:', d.get\\('error', 'None'\\)\\)\")",
+      "Bash(npm install *)"
+    ]
+  }
+}
