@@ -5,6 +5,8 @@ import type Hls from "hls.js";
 import { Loader2, Play } from "lucide-react";
 import {
   KUHI_PROVIDER,
+  forgetKuhiBase,
+  resolveKuhiBase,
   kuhiExtractUrl,
   kuhiProxyUrl,
   kuhiSubtitleUrl,
@@ -19,6 +21,9 @@ import {
   type AnimeMeta,
   type Progress,
 } from "@/lib/library";
+
+// start looking up kuhi's address as soon as the player code loads
+if (typeof window !== "undefined") void resolveKuhiBase();
 
 interface KuhiPlayerProps {
   anilistId: number | null;
@@ -106,11 +111,19 @@ async function fetchExtract(
   episode: number,
   lang: Audio
 ): Promise<KuhiExtract | null> {
+  // the video and subtitle URLs built later need the address too
+  await resolveKuhiBase();
   const key = extractCacheKey(anilistId, episode, lang);
   const cached = readCachedExtract(key);
   if (cached) return cached;
   try {
-    const response = await fetch(kuhiExtractUrl(anilistId, episode, lang, KUHI_PROVIDER));
+    const response = await fetch(kuhiExtractUrl(anilistId, episode, lang, KUHI_PROVIDER)).catch(
+      (error) => {
+        // kuhi unreachable: its address may have changed since it was looked up
+        forgetKuhiBase();
+        throw error;
+      }
+    );
     if (!response.ok) return null;
     const data: KuhiExtract = await response.json();
     if (hasPlayable(data)) {
