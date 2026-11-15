@@ -69,7 +69,12 @@ export default async function WatchPage({ params }: WatchPageProps) {
           </div>
 
           {/* Video Player */}
-          <KuhiPlayer anilistId={anime.anilist_id} episode={isMovie ? 1 : activeEpisode} />
+          {/* keyed so every episode starts with a fresh player */}
+          <KuhiPlayer
+            key={`${anime.anilist_id}-${activeEpisode}`}
+            anilistId={anime.anilist_id}
+            episode={isMovie ? 1 : activeEpisode}
+          />
 
           {/* Episode Grid — hide for movies */}
           {!isMovie && totalEpisodes > 0 && (

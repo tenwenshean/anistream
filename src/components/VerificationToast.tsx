@@ -11,15 +11,10 @@ export default function VerificationToast() {
   useEffect(() => {
     const error = searchParams.get("error");
 
-    if (error === "verification_failed") {
+    if (error === "login_failed") {
       setMessage({
         type: "error",
-        text: "Email verification failed. Please try again or contact support.",
-      });
-    } else if (!error && searchParams.has("verified")) {
-      setMessage({
-        type: "success",
-        text: "Email verified successfully! You can now sign in.",
+        text: "Google sign-in failed, please try again.",
       });
     }
 

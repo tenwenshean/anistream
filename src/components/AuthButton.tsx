@@ -44,10 +44,22 @@ export default function AuthButton() {
   }
 
   if (user) {
+    const name: string = user.user_metadata?.full_name || user.user_metadata?.name || user.email || "";
+    const avatar: string | undefined = user.user_metadata?.avatar_url || user.user_metadata?.picture;
     return (
       <div className="flex items-center gap-3">
+        {avatar && (
+          // Google avatar hosts vary, so a plain img avoids listing them in next.config
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={avatar}
+            alt=""
+            referrerPolicy="no-referrer"
+            className="h-7 w-7 rounded-full border border-neutral-800"
+          />
+        )}
         <span className="hidden sm:inline text-xs font-medium text-neutral-400 truncate max-w-32">
-          {user.email}
+          {name}
         </span>
         <button
           type="button"
@@ -73,7 +85,6 @@ export default function AuthButton() {
       <AuthModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSuccess={() => setModalOpen(false)}
       />
     </>
   );

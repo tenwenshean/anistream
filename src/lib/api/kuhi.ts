@@ -15,9 +15,19 @@ export interface KuhiStream {
   referer?: string;
 }
 
+export interface KuhiSubtitle {
+  url: string;
+  label: string;
+  srclang: string;
+  default?: boolean;
+  // the server name the file came from, e.g. "HD-1"
+  source?: string;
+}
+
 export interface KuhiExtract {
   provider: string;
   streams: KuhiStream[];
+  subtitles?: KuhiSubtitle[];
 }
 
 export function kuhiExtractUrl(
@@ -32,4 +42,10 @@ export function kuhiExtractUrl(
 // kuhi's proxy adds the Referer/Origin headers the video hosts require
 export function kuhiProxyUrl(stream: KuhiStream): string {
   return `${KUHI_API_URL}/proxy_m3u8?url=${encodeURIComponent(stream.url)}&referer=${encodeURIComponent(stream.referer ?? "")}`;
+}
+
+// subtitle hosts refuse requests without the video site's Referer, so the
+// .vtt files go through the same proxy as the video
+export function kuhiSubtitleUrl(subtitle: KuhiSubtitle, referer: string): string {
+  return `${KUHI_API_URL}/proxy_segment?url=${encodeURIComponent(subtitle.url)}&referer=${encodeURIComponent(referer)}`;
 }
