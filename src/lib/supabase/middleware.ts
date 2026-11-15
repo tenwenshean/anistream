@@ -7,6 +7,17 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.next({ request });
   }
 
+  try {
+    return await refreshSession(request);
+  } catch (error) {
+    // a bad Supabase setting or outage must not take every page down;
+    // the visitor just isn't signed in for this request
+    console.error("Supabase session refresh failed:", error);
+    return NextResponse.next({ request });
+  }
+}
+
+async function refreshSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
   const supabaseKey =
