@@ -12,10 +12,20 @@ import {
   type KuhiStream,
   type KuhiSubtitle,
 } from "@/lib/api/kuhi";
+import {
+  getBestProgress,
+  saveLocalProgress,
+  saveRemoteProgress,
+  type AnimeMeta,
+  type Progress,
+} from "@/lib/library";
 
 interface KuhiPlayerProps {
   anilistId: number | null;
   episode: number;
+  anime: AnimeMeta;
+  // pre-loaded near the end of this one so it starts straight away
+  nextEpisode: number | null;
 }
 
 type Audio = "sub" | "dub";
@@ -66,7 +76,87 @@ function saveAudio(audio: Audio) {
   }
 }
 
-export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
+// kuhi takes several seconds to find an episode's streams; keeping the answer
+// for a few minutes makes going back, and the pre-loaded next episode, instant
+const EXTRACT_CACHE_MS = 10 * 60 * 1000;
+const extractCacheKey = (anilistId: number, episode: number, lang: Audio) =>
+  `kuhi-extract:${anilistId}:${episode}:${lang}`;
+
+function readCachedExtract(key: string): KuhiExtract | null {
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+    const { savedAt, data } = JSON.parse(raw);
+    if (Date.now() - savedAt < EXTRACT_CACHE_MS) return data;
+    sessionStorage.removeItem(key);
+  } catch {
+    // storage blocked: just ask kuhi again
+  }
+  return null;
+}
+
+function dropCachedExtract(anilistId: number, episode: number, lang: Audio) {
+  try {
+    sessionStorage.removeItem(extractCacheKey(anilistId, episode, lang));
+  } catch {}
+}
+
+async function fetchExtract(
+  anilistId: number,
+  episode: number,
+  lang: Audio
+): Promise<KuhiExtract | null> {
+  const key = extractCacheKey(anilistId, episode, lang);
+  const cached = readCachedExtract(key);
+  if (cached) return cached;
+  try {
+    const response = await fetch(kuhiExtractUrl(anilistId, episode, lang, KUHI_PROVIDER));
+    if (!response.ok) return null;
+    const data: KuhiExtract = await response.json();
+    if (hasPlayable(data)) {
+      try {
+        sessionStorage.setItem(key, JSON.stringify({ savedAt: Date.now(), data }));
+      } catch {}
+    }
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+// the server that worked last time is tried first, skipping dead ones
+const SERVER_STORAGE_KEY = "anistream-server";
+
+function readPreferredServer(): string | null {
+  try {
+    return localStorage.getItem(SERVER_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+function savePreferredServer(server?: string) {
+  if (!server) return;
+  try {
+    localStorage.setItem(SERVER_STORAGE_KEY, server);
+  } catch {}
+}
+
+// never let a slow lookup hold up the video
+function withTimeout<T>(promise: Promise<T>, ms: number, fallback: T): Promise<T> {
+  return Promise.race([
+    promise.catch(() => fallback),
+    new Promise<T>((resolve) => setTimeout(() => resolve(fallback), ms)),
+  ]);
+}
+
+function formatTime(seconds: number) {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${String(s).padStart(2, "0")}`;
+}
+
+export default function KuhiPlayer({ anilistId, episode, anime, nextEpisode }: KuhiPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   // null until the saved choice is read, so nothing loads twice
   const [audio, setAudio] = useState<Audio | null>(null);
@@ -100,11 +190,7 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
     (lang: Audio) => {
       let request = extracts.current.get(lang);
       if (!request) {
-        request = anilistId
-          ? fetch(kuhiExtractUrl(anilistId, episode, lang, KUHI_PROVIDER))
-              .then((r) => (r.ok ? (r.json() as Promise<KuhiExtract>) : null))
-              .catch(() => null)
-          : Promise.resolve(null);
+        request = anilistId ? fetchExtract(anilistId, episode, lang) : Promise.resolve(null);
         extracts.current.set(lang, request);
       }
       return request;
@@ -141,7 +227,7 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
     const blobUrls: string[] = [];
 
     // resolves true once the stream buffers its first fragment
-    const tryHls = (HlsClass: typeof Hls, stream: KuhiStream) =>
+    const tryHls = (HlsClass: typeof Hls, stream: KuhiStream, startAt: number) =>
       new Promise<boolean>((resolve) => {
         const video = videoRef.current;
         if (!video) return resolve(false);
@@ -155,6 +241,8 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
           maxBufferLength: 30,
           maxMaxBufferLength: 60,
           backBufferLength: 30,
+          // resuming loads the right part of the video first, not the start
+          startPosition: startAt > 0 ? startAt : -1,
         });
         player.hls = instance;
         let settled = false;
@@ -210,9 +298,12 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
     (async () => {
       setStatus(audio === "dub" ? "Finding dub..." : "Finding stream...");
       // load the player library while kuhi looks up the episode
-      const [{ default: HlsClass }, extract] = await Promise.all([
+      // where the viewer stopped is looked up alongside; it is far quicker
+      // than the stream lookup, and capped so it can never delay the video
+      const [{ default: HlsClass }, extract, progress] = await Promise.all([
         import("hls.js"),
         getExtract(audio),
+        withTimeout<Progress | null>(getBestProgress(anime), 1500, null),
       ]);
       if (cancelled) return;
 
@@ -244,18 +335,33 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
       const streams = extract.streams;
       const fallbackEmbed = streams.find((s) => s.type === "embed")?.url ?? null;
       // anikoto lists the same playlist under several server names
-      const hlsStreams = streams.filter(
-        (s, i) => s.type === "hls" && streams.findIndex((o) => o.url === s.url) === i
-      );
+      const preferred = readPreferredServer();
+      const hlsStreams = streams
+        .filter((s, i) => s.type === "hls" && streams.findIndex((o) => o.url === s.url) === i)
+        .sort((a, b) => Number(b.server === preferred) - Number(a.server === preferred));
+
+      const resumeAt =
+        progress &&
+        progress.episode === episode &&
+        progress.position > 15 &&
+        (!progress.duration || progress.position < progress.duration - 60)
+          ? progress.position
+          : 0;
 
       if (HlsClass.isSupported()) {
         for (const stream of hlsStreams) {
           if (cancelled) return;
           setStatus("Loading video...");
-          if (await tryHls(HlsClass, stream)) {
+          if (await tryHls(HlsClass, stream, resumeAt)) {
             if (cancelled) return;
             setPlaying(true);
-            const server = stream.server ? `Server: ${stream.server}` : "";
+            savePreferredServer(stream.server);
+            const server = [
+              stream.server ? `Server: ${stream.server}` : "",
+              resumeAt ? `Resumed at ${formatTime(resumeAt)}` : "",
+            ]
+              .filter(Boolean)
+              .join(" · ");
             setStatus(server);
             // dub audio is already English
             if (audio === "sub") {
@@ -276,6 +382,8 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
       if (cancelled) return;
       player.hls?.destroy();
       player.hls = null;
+      // the saved streams may have expired; ask kuhi afresh next time
+      dropCachedExtract(anilistId, episode, audio);
       if (fallbackEmbed) {
         // the backup player shows its own subtitles
         setEmbedUrl(fallbackEmbed);
@@ -291,7 +399,69 @@ export default function KuhiPlayer({ anilistId, episode }: KuhiPlayerProps) {
       player.hls?.destroy();
       blobUrls.forEach((url) => URL.revokeObjectURL(url));
     };
-  }, [anilistId, episode, audio, getExtract]);
+  }, [anilistId, episode, audio, getExtract, anime]);
+
+  // remember where the viewer is: on this device every few seconds, on their
+  // account every 30 seconds and whenever they pause or leave
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!playing || !video || !audio) return;
+    let lastLocal = 0;
+    let lastRemote = 0;
+    let prefetched = false;
+
+    const save = (remote: boolean) => {
+      if (video.currentTime < 1) return;
+      const progress: Progress = {
+        ...anime,
+        episode,
+        position: video.currentTime,
+        duration: Number.isFinite(video.duration) ? video.duration : null,
+        updatedAt: Date.now(),
+      };
+      saveLocalProgress(progress);
+      if (remote) void saveRemoteProgress(progress);
+    };
+
+    const onTimeUpdate = () => {
+      const now = Date.now();
+      if (now - lastLocal >= 5000) {
+        lastLocal = now;
+        const remote = now - lastRemote >= 30000;
+        if (remote) lastRemote = now;
+        save(remote);
+      }
+      // near the end, look up the next episode so it starts at once
+      if (
+        !prefetched &&
+        nextEpisode &&
+        anilistId &&
+        video.duration &&
+        video.currentTime / video.duration > 0.85
+      ) {
+        prefetched = true;
+        void fetchExtract(anilistId, nextEpisode, audio);
+      }
+    };
+    const saveNow = () => save(true);
+    const onVisibility = () => {
+      if (document.visibilityState === "hidden") save(true);
+    };
+
+    video.addEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("pause", saveNow);
+    video.addEventListener("ended", saveNow);
+    document.addEventListener("visibilitychange", onVisibility);
+    window.addEventListener("pagehide", saveNow);
+    return () => {
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("pause", saveNow);
+      video.removeEventListener("ended", saveNow);
+      document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pagehide", saveNow);
+      save(true);
+    };
+  }, [playing, audio, anilistId, episode, nextEpisode, anime]);
 
   function choose(option: Audio) {
     if (option === audio) return;

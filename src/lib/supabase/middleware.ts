@@ -45,7 +45,10 @@ async function refreshSession(request: NextRequest) {
     }
   );
 
-  await supabase.auth.getUser();
+  // getClaims checks the login token locally (with Supabase's cached public
+  // key) instead of asking Supabase on every page load like getUser did,
+  // and still refreshes the token when it has expired
+  await supabase.auth.getClaims();
 
   return supabaseResponse;
 }

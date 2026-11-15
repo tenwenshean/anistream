@@ -71,6 +71,10 @@ export default function Navbar() {
           <Link href="/popular" className="hover:text-purple-400 transition-colors">
             Popular
           </Link>
+
+          <Link href="/library" className="whitespace-nowrap hover:text-purple-400 transition-colors">
+            My List
+          </Link>
         </nav>
       </div>
 

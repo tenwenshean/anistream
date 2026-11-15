@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAnimeByMalId } from "@/lib/api/anilist";
 import KuhiPlayer from "@/components/KuhiPlayer";
 import EpisodeGrid from "@/components/EpisodeGrid";
+import LibraryButtons from "@/components/LibraryButtons";
 
 interface WatchPageProps {
   params: Promise<{
@@ -64,6 +65,11 @@ export default async function WatchPage({ params }: WatchPageProps) {
                 <p className="text-sm text-neutral-400 leading-relaxed line-clamp-4">
                   {anime.synopsis || "No synopsis available."}
                 </p>
+                <LibraryButtons
+                  malId={Number(animeId)}
+                  title={anime.title}
+                  imageUrl={anime.image_url}
+                />
               </div>
             </div>
           </div>
@@ -74,6 +80,8 @@ export default async function WatchPage({ params }: WatchPageProps) {
             key={`${anime.anilist_id}-${activeEpisode}`}
             anilistId={anime.anilist_id}
             episode={isMovie ? 1 : activeEpisode}
+            anime={{ malId: Number(animeId), title: anime.title, imageUrl: anime.image_url }}
+            nextEpisode={!isMovie && activeEpisode < totalEpisodes ? activeEpisode + 1 : null}
           />
 
           {/* Episode Grid — hide for movies */}

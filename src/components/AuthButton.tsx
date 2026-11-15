@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { LogIn, LogOut } from "lucide-react";
 import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/client";
@@ -48,19 +49,25 @@ export default function AuthButton() {
     const avatar: string | undefined = user.user_metadata?.avatar_url || user.user_metadata?.picture;
     return (
       <div className="flex items-center gap-3">
-        {avatar && (
-          // Google avatar hosts vary, so a plain img avoids listing them in next.config
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={avatar}
-            alt=""
-            referrerPolicy="no-referrer"
-            className="h-7 w-7 rounded-full border border-neutral-800"
-          />
-        )}
-        <span className="hidden sm:inline text-xs font-medium text-neutral-400 truncate max-w-32">
-          {name}
-        </span>
+        <Link
+          href="/library"
+          title="My List"
+          className="flex items-center gap-2 rounded-full transition-colors hover:text-purple-300"
+        >
+          {avatar && (
+            // Google avatar hosts vary, so a plain img avoids listing them in next.config
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={avatar}
+              alt=""
+              referrerPolicy="no-referrer"
+              className="h-7 w-7 rounded-full border border-neutral-800"
+            />
+          )}
+          <span className="hidden sm:inline text-xs font-medium text-neutral-400 truncate max-w-32">
+            {name}
+          </span>
+        </Link>
         <button
           type="button"
           onClick={handleSignOut}
@@ -85,6 +92,7 @@ export default function AuthButton() {
       <AuthModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
+        onSuccess={() => setModalOpen(false)}
       />
     </>
   );

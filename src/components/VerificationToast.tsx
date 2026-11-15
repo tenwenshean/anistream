@@ -14,7 +14,12 @@ export default function VerificationToast() {
     if (error === "login_failed") {
       setMessage({
         type: "error",
-        text: "Google sign-in failed, please try again.",
+        text: "Sign-in failed, please try again.",
+      });
+    } else if (!error && searchParams.has("verified")) {
+      setMessage({
+        type: "success",
+        text: "Email verified, you're signed in.",
       });
     }
 
